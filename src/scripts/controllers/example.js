@@ -4,8 +4,8 @@
 'use strict';
 
 angular
-  .module('example')
-  .controller('ExampleCtrl', ['$http', '$log', '$scope', function($http, $log, $scope) {
+  .module('metricsgraphics')
+  .controller('ExampleCtrl', ['$scope', '$http', '$log', function($scope, $http, $log) {
 
     $scope.STATES = {
       READY: 0,
@@ -13,7 +13,7 @@ angular
     };
 
     $scope.alert = null;
-    $scope.data = [];
+    $scope.data = null;
     $scope.state = $scope.STATES.READY;
 
     //-------------------------------------------------------------------------
@@ -32,14 +32,14 @@ angular
       $scope.alert = null;
       $scope.state = $scope.STATES.LOADING;
       $http
-        .get('data/ufosightings.json')
+        .get('data/ufo.json')
         .success(function(data) {
           $scope.data = data;
           $scope.state = $scope.STATES.READY;
         })
         .error(function(err) {
           $scope.alert = {};
-          $scope.data = [];
+          $scope.data = null;
           $scope.state = $scope.STATES.READY;
           $log.error(err);
         });

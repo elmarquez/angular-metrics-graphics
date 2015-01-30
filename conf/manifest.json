@@ -1,19 +1,19 @@
 {
   "css": [
     "css/example.css",
+    "vendor/bootstrap/dist/css/bootstrap.min.css",
     "vendor/metrics-graphics/dist/metricsgraphics.css"
   ],
   "js": [
     "vendor/jquery/dist/jquery.min.js",
-    "vendor/angular/angular.min.js",
-    "vendor/angular-animate/angular-animate.min.js",
-    "vendor/angular-touch/angular-touch.min.js",
+    "vendor/bootstrap/dist/js/bootstrap.min.js",
     "vendor/d3/d3.min.js",
-    "vendor/metrics-graphics/dist/metricsgraphics.min.js"
+    "vendor/metrics-graphics/dist/metricsgraphics.min.js",
+    "vendor/angular/angular.min.js"
   ],
   "app": [
-    "scripts/directives/metricsgraphics.js",
     "scripts/app.js",
-    "scripts/controllers/example.js"
+    "scripts/controllers/example.js",
+    "scripts/directives/chart.js"
   ]
 }

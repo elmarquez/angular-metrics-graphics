@@ -2,7 +2,7 @@ module.exports = {
   dist: {
     files: {
       '<%= yeoman.dist %>/metricsgraphics.min.js': [
-        '<%= yeoman.app %>/scripts/directives/metricsgraphics.js'
+        '<%= yeoman.app %>/scripts/directives/chart.js'
       ]
     }
   },

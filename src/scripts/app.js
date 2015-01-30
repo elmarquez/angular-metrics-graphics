@@ -3,11 +3,7 @@
 /**
  * Example charting application.
  */
-var app = angular.module('example', [
-  'ngAnimate',
-  'ngTouch',
-  'metricsgraphics'
-]);
+var app = angular.module('metricsgraphics', []);
 
 app.constant('MetricsGraphicsCfg', {
   a: 'b'
