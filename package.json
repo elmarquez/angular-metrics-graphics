@@ -1,0 +1,45 @@
+{
+  "name": "angular-metrics-graphics",
+  "version": "0.1.0",
+  "description": "Angular directive for MetricsGraphics library",
+  "main": "dist/metricsgraphics.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "keywords": [
+    "angular",
+    "chart",
+    "metrics",
+    "metricsgraphics"
+  ],
+  "authors": [
+    "Davis Marques <dmarq.ezz@gmail.com>"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "debug": "^2.1.0",
+    "grunt-available-tasks": "^0.5.4",
+    "grunt-bump": "0.0.16",
+    "grunt-cli": "^0.1.13",
+    "grunt-concurrent": "^0.5.0",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-concat": "^0.4.0",
+    "grunt-contrib-connect": "^0.7.1",
+    "grunt-contrib-copy": "^0.5.0",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-uglify": "^0.4.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-protractor-runner": "^1.2.1",
+    "grunt-template": "^0.2.3",
+    "jasmine-reporters": "^1.0.1",
+    "jasmine-spec-reporter": "^1.1.1",
+    "jshint-stylish": "^0.2.0",
+    "load-grunt-config": "^0.16.0",
+    "protractor": "^1.6.1",
+    "time-grunt": "^0.3.1"
+  },
+  "dependencies": {
+    "jasmine-reporters": "^1.0.1",
+    "jasmine-spec-reporter": "^2.1.0"
+  }
+}

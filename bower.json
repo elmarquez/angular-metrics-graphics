@@ -1,0 +1,24 @@
+{
+  "name": "angular-metrics-graphics",
+  "version": "0.1.0",
+  "authors": [
+    "Davis Marques <dmarq.ezz@gmail.com>"
+  ],
+  "description": "Angular directive for MetricsGraphics library",
+  "main": "dist/angular-metricsgraphics.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "appPath": "src",
+  "dependencies": {
+    "angular": "~1.3.11",
+    "angular-animate": "~1.3.11",
+    "angular-touch": "~1.3.11",
+    "metrics-graphics": "~2.1.0"
+  }
+}
