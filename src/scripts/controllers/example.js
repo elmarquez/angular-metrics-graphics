@@ -13,7 +13,13 @@ angular
     };
 
     $scope.alert = null;
-    $scope.data = null;
+    $scope.chart = {
+      data: null,
+      title: 'Test Title',
+      description: 'A test description',
+      xAccessor: 'date',
+      yAccessor: 'value'
+    };
     $scope.state = $scope.STATES.READY;
 
     //-------------------------------------------------------------------------
@@ -32,14 +38,14 @@ angular
       $scope.alert = null;
       $scope.state = $scope.STATES.LOADING;
       $http
-        .get('data/ufo.json')
+        .get('data/fake_users1.json')
         .success(function(data) {
-          $scope.data = data;
+          $scope.chart.data = data;
           $scope.state = $scope.STATES.READY;
         })
         .error(function(err) {
           $scope.alert = {};
-          $scope.data = null;
+          $scope.chart.data = null;
           $scope.state = $scope.STATES.READY;
           $log.error(err);
         });

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head lang="en" ng-app="metricsgraphics">
+<head lang="en">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="initial-scale=1,width=device-width">
@@ -19,18 +19,24 @@
   <% _.forEach(app, function(url) { %><script src="<%= url %>"></script>
   <% }); %>
 </head>
-<body>
+<body ng-app="metricsgraphics">
 
   <div class="container" ng-controller="ExampleCtrl">
     <div class="row">
       <div class="col-lg-12">
         <h1>Tests for angular-metrics-graphics module</h1>
         <p>Sample charts from the <a href="http://www.metricsgraphicsjs.org">MetricsGraphics</a> project page.</p>
-
-        <chart id="test" class="col-xs-4 text-center" style="border:1px solid red;" ng-if="data"></chart>
-
-        <div chart id="test2" class="col-xs-4 text-center" style="border:1px solid red;" ng-if="data"></div>
-
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <chart title="{{ chart.title }}"
+               description="{{ chart.description }}"
+               xAccessor="{{ chart.xAccessor }}"
+               yAccessor="{{ chart.yAccessor }}"
+               ng-if="chart.data"></chart>
+      </div>
+      <div class="col-lg-6">
         <div id="fake_users1"></div>
       </div>
     </div>

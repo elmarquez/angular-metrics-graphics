@@ -8,7 +8,7 @@
     "vendor/jquery/dist/jquery.min.js",
     "vendor/bootstrap/dist/js/bootstrap.min.js",
     "vendor/d3/d3.min.js",
-    "vendor/metrics-graphics/dist/metricsgraphics.min.js",
+    "vendor/metrics-graphics/dist/metricsgraphics.js",
     "vendor/angular/angular.min.js"
   ],
   "app": [

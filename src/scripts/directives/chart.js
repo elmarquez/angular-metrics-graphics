@@ -10,26 +10,36 @@
 angular.module('metricsgraphics').directive('chart', function($http) {
   return {
     restrict: 'E',
+    scope: {
+      data: '@',
+      description: '@',
+      height: '@',
+      right: '@',
+      title: '@',
+      xAccessor: '@',
+      yAccessor: '@'
+    },
     link: function(scope, element) {
-
       var success = function(data) {
-        var torso = {};
-        torso.width = 375;
-        torso.height = 200;
-        torso.right = 20;
+        var dim = {
+          height: 200,
+          right: 20,
+          width: element[0].parentElement.clientWidth || 300
+        };
+        element[0].id = element[0].id ? element[0].id : Math.random().toString(36).substr(2, 5);
         data = MG.convert.date(data, 'date');
-        var fake_baselines = [{value: 160000000, label: 'a baseline'}];
+        //var fake_baselines = [{value: 160000000, label: 'a baseline'}];
         MG.data_graphic({
-          title: 'Line Chart',
-          description: 'This is a simple line chart. You can remove the area portion by adding <i>area: false</i> to the arguments list.',
+          title: scope.title,
+          description: scope.description,
           data: data,
-          width: torso.width,
-          height: torso.height,
-          right: torso.right,
-          baselines: fake_baselines,
-          target: element[0],
-          x_accessor: 'date',
-          y_accessor: 'value'
+          width: dim.width || 300,
+          height: scope.height || 200,
+          right: dim.right || 0,
+          //baselines: fake_baselines,
+          target: '#' + element[0].id,
+          x_accessor: scope.xAccessor,
+          y_accessor: scope.yAccessor
         });
       };
 
