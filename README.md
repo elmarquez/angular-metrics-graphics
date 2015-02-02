@@ -4,6 +4,8 @@ Angular MetricsGraphics Directive
 Angular directive that encapsulates the Mozilla MetricsGraphics library,
 providing easy configuration.
 
+[![Build Status](https://travis-ci.org/elmarquez/angular-metrics-graphics.svg?branch=master)](https://travis-ci.org/elmarquez/angular-metrics-graphics)
+
 
 Dependencies
 ------------

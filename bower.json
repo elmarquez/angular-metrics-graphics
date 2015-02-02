@@ -8,6 +8,11 @@
   "main": "dist/angular-metrics-graphics.js",
   "license": "MIT",
   "ignore": [
+    "Gruntfile.js",
+    ".bowerrc",
+    ".jshintrc",
+    ".travis.yml",
+    "package.json",
     "conf",
     "node_modules",
     "src",

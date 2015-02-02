@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="initial-scale=1,width=device-width">
+  <title>angular-metrics-graphics</title>
+  <!-- STYLES -->
+  <link rel="stylesheet" type="text/css" href="css/example.css"/>
+  <link rel="stylesheet" type="text/css" href="vendor/bootstrap/dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" type="text/css" href="vendor/metrics-graphics/dist/metricsgraphics.css"/>
+  
+  <!-- SCRIPTS -->
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  <script src="vendor/jquery/dist/jquery.min.js"></script>
+  <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="vendor/d3/d3.min.js"></script>
+  <script src="vendor/metrics-graphics/dist/metricsgraphics.js"></script>
+  <script src="vendor/angular/angular.min.js"></script>
+  
+  <script src="scripts/app.js"></script>
+  <script src="scripts/controllers/example.js"></script>
+  <script src="scripts/directives/chart.js"></script>
+  
+</head>
+<body ng-app="metricsgraphics">
+
+  <div class="container" ng-controller="ExampleCtrl">
+    <div class="row">
+      <div class="col-lg-12">
+        <h1>Tests for angular-metrics-graphics module</h1>
+        <p>Sample charts from the <a href="http://www.metricsgraphicsjs.org">MetricsGraphics</a> project page.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <chart title="{{ chart.title }}"
+               description="{{ chart.description }}"
+               xAccessor="{{ chart.xAccessor }}"
+               yAccessor="{{ chart.yAccessor }}"
+               ng-if="chart.data"></chart>
+      </div>
+      <div class="col-lg-6">
+        <div id="fake_users1"></div>
+      </div>
+    </div>
+  </div>
+
+<script type="text/javascript">
+  var torso = {};
+  torso.width = 375;
+  torso.height = 200;
+  torso.right = 20;
+
+  $(document).ready(function() {
+    d3.json('data/fake_users1.json', function(data) {
+      data = MG.convert.date(data, 'date');
+      var fake_baselines = [{value: 160000000, label: 'a baseline'}];
+      // add a line chart
+      MG.data_graphic({
+        title: "Line Chart",
+        description: "This is a simple line chart. You can remove the area portion by adding <i>area: false</i> to the arguments list.",
+        data: data,
+        width: torso.width,
+        height: torso.height,
+        right: torso.right,
+        baselines: fake_baselines,
+        target: '#fake_users1',
+        x_accessor: 'date',
+        y_accessor: 'value'
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
