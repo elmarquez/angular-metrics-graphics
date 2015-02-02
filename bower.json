@@ -10,6 +10,7 @@
   "ignore": [
     "Gruntfile.js",
     ".bowerrc",
+    ".gitignore",
     ".jshintrc",
     ".travis.yml",
     "package.json",
