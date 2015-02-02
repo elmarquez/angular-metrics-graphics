@@ -3,9 +3,8 @@ module.exports = function (grunt) {
     function () {
       grunt.task.run([
         'jshint:src',
-        'clean:dist',
-        'copy:dist',
-        'copy:vendor',
+        'clean',
+        'copy',
         'uglify',
         'template'
       ]);

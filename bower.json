@@ -5,14 +5,13 @@
     "Davis Marques <dmarq.ezz@gmail.com>"
   ],
   "description": "Angular directive for MetricsGraphics library",
-  "main": "dist/angular-metricsgraphics.js",
+  "main": "dist/angular-metrics-graphics.js",
   "license": "MIT",
   "ignore": [
-    "**/.*",
     "node_modules",
-    "bower_components",
+    "src",
     "test",
-    "tests"
+    "vendor"
   ],
   "appPath": "src",
   "dependencies": {
