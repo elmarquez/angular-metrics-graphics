@@ -6,7 +6,6 @@
 .DS_Store
 .idea
 
-dist
 logs
 node_modules
 vendor

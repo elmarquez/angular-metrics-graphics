@@ -8,6 +8,7 @@
   "main": "dist/angular-metrics-graphics.js",
   "license": "MIT",
   "ignore": [
+    "conf",
     "node_modules",
     "src",
     "test",
