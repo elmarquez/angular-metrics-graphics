@@ -19,43 +19,35 @@ angular
     $scope.charts = {
       fakeUsers: {
         data: null,
-        options: {
-          title: 'User Accounts',
-          description: 'New user accounts by date',
-          x_accessor: 'date',
-          y_accessor: 'value'
-        },
-        src: 'data/fake_users1.json'
+        description: 'New user accounts by date',
+        src: 'data/fake_users1.json',
+        title: 'User Accounts',
+        x_accessor: 'date',
+        y_accessor: 'value'
       },
       fakeUsers2: {
         data: null,
-        options: {
-          title: 'Some Other Account Information',
-          description: 'Some other user account information, by date',
-          x_accessor: 'date',
-          y_accessor: 'value'
-        },
-        src: 'data/fake_users2.json'
+        description: 'Some other user account information, by date',
+        src: 'data/fake_users2.json',
+        title: 'Some Other Account Information',
+        x_accessor: 'date',
+        y_accessor: 'value'
       },
       smallRanges: {
         data: null,
-        options: {
-          title: 'Small Value Range',
-          description: 'Small value range',
-          x_accessor: 'date',
-          y_accessor: 'value'
-        },
-        src: 'data/small-range.json'
+        description: 'Small value range',
+        src: 'data/small-range.json',
+        title: 'Small Value Range',
+        x_accessor: 'date',
+        y_accessor: 'value'
       },
       ufoSightings: {
         data: null,
-        options: {
-          title: 'UFO Sightings',
-          description: 'Unidentified flying object sightings in Australia by date',
-          x_accessor: 'date',
-          y_accessor: 'value'
-        },
-        src: 'data/ufo_sightings.json'
+        description: 'Unidentified flying object sightings in Australia by date',
+        src: 'data/ufo_sightings.json',
+        title: 'UFO Sightings',
+        x_accessor: 'date',
+        y_accessor: 'value'
       }
     };
     $scope.state = $scope.STATES.READY;

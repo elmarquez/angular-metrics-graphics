@@ -21,8 +21,8 @@ angular.module('metricsgraphics').directive('chart', function() {
         right: 0,
         title: null,
         width: element[0].parentElement.clientWidth || 300,
-        xAccessor: null,
-        yAccessor: null
+        x_accessor: null,
+        y_accessor: null
       };
       // override default options with values from the scope
       if (scope.options) {
@@ -39,11 +39,11 @@ angular.module('metricsgraphics').directive('chart', function() {
           var randomPoz = Math.floor(Math.random() * charSet.length);
           s += charSet.substring(randomPoz,randomPoz+1);
         }
-        return s;
+        return 'mg-chart-' + s;
       }
       element[0].id = element[0].id ? element[0].id : randomString(5);
       // set the data and target configuration options
-      options.data = scope.data || []; // TODO why don't we include data in the options obj that's passed in?
+      options.data = scope.data || [];
       options.target = '#' + element[0].id;
       // create the chart
       MG.data_graphic(options);
