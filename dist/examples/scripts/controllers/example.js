@@ -6,7 +6,7 @@
  * Example controller.
  */
 angular
-  .module('metricsgraphics')
+  .module('example')
   .controller('ExampleCtrl', ['$scope', '$http', '$log', function($scope, $http, $log) {
 
     $scope.STATES = {
