@@ -1,10 +1,18 @@
 Angular MetricsGraphics Directive
 =================================
 
-Angular directive that encapsulates the Mozilla MetricsGraphics library,
+An Angular directive that encapsulates the Mozilla MetricsGraphics library,
 providing easy configuration.
 
 [![Build Status](https://travis-ci.org/elmarquez/angular-metrics-graphics.svg?branch=master)](https://travis-ci.org/elmarquez/angular-metrics-graphics)
+
+
+Installation
+------------
+
+Use Bower to automatically install the library and its dependencies in your project:
+
+    bower install -S angular-metrics-graphics
 
 
 Dependencies
@@ -17,25 +25,30 @@ The library has the following runtime dependencies:
  * JQuery
  * MetricsGraphics
 
-To compile the library from sources, you will require the following:
+To compile the library from sources, you will require the following dependencies:
 
  * Nodejs
  * Bower
  * Grunt
 
+Install all Nodejs and Bower dependencies:
 
-Installation
-------------
+    npm install; bower install
 
-Use Bower to install the library and its dependencies in your project:
-
-    bower install -S angular-metrics-graphics
+Run `grunt` at the console to see the list of build commands.
 
 
 Usage
 -----
 
-Notes forthcoming.
+Create a chart with default data for testing:
+
+    <chart></chart>
+
+Bind the chart to the variable `data` in the controller scope. Provide
+configuration options from the variable `options` in the controller scope:
+
+    <chart data="{{ data }}" options="{{ options }}"></chart>
 
 
 License

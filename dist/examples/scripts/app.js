@@ -3,8 +3,8 @@
 /**
  * Example charting application.
  */
-var app = angular.module('metricsgraphics', []);
-
-app.constant('MetricsGraphicsCfg', {
-  a: 'b'
+angular.module('metricsgraphics', []).constant('MetricsGraphicsCfg', {
+  // TODO default configuration values
+  a: 'b',
+  c: 'd'
 });

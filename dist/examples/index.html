@@ -30,6 +30,13 @@
 <body ng-app="metricsgraphics">
 
   <div class="container" ng-controller="ExampleCtrl">
+    <div class="row" ng-show="alert">
+      <div class="alert alert-dismissable" ng-class="{'alert-danger':alert.type==='ERROR','alert-warning':alert.type==='WARNING','alert-info':alert.type==='INFO'}">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4>{{ alert.type }}</h4>
+        <p>{{ alert.message }}</p>
+      </div>
+    </div>
     <div class="row">
       <div class="col-lg-12">
         <h1>Tests for angular-metrics-graphics module</h1>
@@ -38,44 +45,33 @@
     </div>
     <div class="row">
       <div class="col-lg-6">
-        <chart title="{{ chart.title }}"
-               description="{{ chart.description }}"
-               xAccessor="{{ chart.xAccessor }}"
-               yAccessor="{{ chart.yAccessor }}"
-               ng-if="chart.data"></chart>
+        <chart data="charts.fakeUsers.data"
+               options="charts.fakeUsers.options"
+               ng-if="charts.fakeUsers.data">
+        </chart>
       </div>
       <div class="col-lg-6">
-        <div id="fake_users1"></div>
+        <chart data="charts.ufoSightings.data"
+               options="charts.ufoSightings.options"
+               ng-if="charts.ufoSightings.data">
+        </chart>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <chart data="charts.fakeUsers2.data"
+               options="charts.fakeUsers2.options"
+               ng-if="charts.fakeUsers2.data">
+        </chart>
+      </div>
+      <div class="col-lg-6">
+        <chart data="charts.smallRanges.data"
+               options="charts.smallRanges.options"
+               ng-if="charts.smallRanges.data">
+        </chart>
       </div>
     </div>
   </div>
-
-<script type="text/javascript">
-  var torso = {};
-  torso.width = 375;
-  torso.height = 200;
-  torso.right = 20;
-
-  $(document).ready(function() {
-    d3.json('data/fake_users1.json', function(data) {
-      data = MG.convert.date(data, 'date');
-      var fake_baselines = [{value: 160000000, label: 'a baseline'}];
-      // add a line chart
-      MG.data_graphic({
-        title: "Line Chart",
-        description: "This is a simple line chart. You can remove the area portion by adding <i>area: false</i> to the arguments list.",
-        data: data,
-        width: torso.width,
-        height: torso.height,
-        right: torso.right,
-        baselines: fake_baselines,
-        target: '#fake_users1',
-        x_accessor: 'date',
-        y_accessor: 'value'
-      });
-    });
-  });
-</script>
 
 </body>
 </html>

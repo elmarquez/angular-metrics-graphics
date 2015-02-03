@@ -1,53 +1,57 @@
-/**
- * MetricsGraphics
- * This directive is based on tassekatt's Stackoverflow post
- * @see http://stackoverflow.com/questions/27252464/how-to-bind-graphicsmetrics-jquery-plugin-in-angular-app
- */
 /* global MG */
 /* jshint camelcase:false, unused:false */
 'use strict';
 
-angular.module('metricsgraphics').directive('chart', function($http) {
+/**
+ * MetricsGraphics
+ * This directive is based on tassekatt's Stackoverflow post
+ * @see http://stackoverflow.com/questions/27252464/how-to-bind-graphicsmetrics-jquery-plugin-in-angular-app
+ *
+ * @param {Array} data Chart data
+ * @param {Object} options Chart configuration
+ */
+angular.module('metricsgraphics').directive('chart', function() {
   return {
+    link: function(scope, element) {
+      // default options
+      var options = {
+        baselines: [], // [{value: 160000000, label: 'a baseline'}];
+        description: null,
+        height: 200,
+        right: 0,
+        title: null,
+        width: element[0].parentElement.clientWidth || 300,
+        xAccessor: null,
+        yAccessor: null
+      };
+      // override default options with values from the scope
+      if (scope.options) {
+        Object.keys(scope.options).forEach(function(key) {
+          options[key] = scope.options[key];
+        });
+      }
+      // create a random identifier for the chart element
+      // TODO replace this with a template that has a unique id
+      function randomString(len) {
+        var charSet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        var s = '';
+        for (var i = 0; i < len; i++) {
+          var randomPoz = Math.floor(Math.random() * charSet.length);
+          s += charSet.substring(randomPoz,randomPoz+1);
+        }
+        return s;
+      }
+      element[0].id = element[0].id ? element[0].id : randomString(5);
+      // set the data and target configuration options
+      options.data = scope.data || []; // TODO why don't we include data in the options obj that's passed in?
+      options.target = '#' + element[0].id;
+      // create the chart
+      MG.data_graphic(options);
+    },
     restrict: 'E',
     scope: {
-      data: '@',
-      description: '@',
-      height: '@',
-      right: '@',
-      title: '@',
-      xAccessor: '@',
-      yAccessor: '@'
-    },
-    link: function(scope, element) {
-      var success = function(data) {
-        var dim = {
-          height: 200,
-          right: 20,
-          width: element[0].parentElement.clientWidth || 300
-        };
-        element[0].id = element[0].id ? element[0].id : Math.random().toString(36).substr(2, 5);
-        data = MG.convert.date(data, 'date');
-        //var fake_baselines = [{value: 160000000, label: 'a baseline'}];
-        MG.data_graphic({
-          title: scope.title,
-          description: scope.description,
-          data: data,
-          width: dim.width || 300,
-          height: scope.height || 200,
-          right: dim.right || 0,
-          //baselines: fake_baselines,
-          target: '#' + element[0].id,
-          x_accessor: scope.xAccessor,
-          y_accessor: scope.yAccessor
-        });
-      };
-
-      var error = function(err) {
-        console.log(err);
-      };
-
-      $http.get('data/fake_users1.json').success(success).error(error);
+      data: '=',
+      options: '='
     }
   };
 });
