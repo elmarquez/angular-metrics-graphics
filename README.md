@@ -14,6 +14,9 @@ Use Bower to automatically install the library and its dependencies in your proj
 
     bower install -S angular-metrics-graphics
 
+Alternately you may clone the project repository and use the compiled
+dist/angular-metrics-graphics.js library file.
+
 
 Dependencies
 ------------
@@ -21,9 +24,9 @@ Dependencies
 The library has the following runtime dependencies:
 
  * Angular.js
- * D3.js
  * JQuery
  * MetricsGraphics
+ * d3.js
 
 To compile the library from sources, you will require the following dependencies:
 
@@ -31,7 +34,7 @@ To compile the library from sources, you will require the following dependencies
  * Bower
  * Grunt
 
-Install all Nodejs and Bower dependencies:
+Install all build and run time dependencies as follows:
 
     npm install; bower install
 
@@ -41,12 +44,19 @@ Run `grunt` at the console to see the list of build commands.
 Usage
 -----
 
-Create a chart with default data for testing:
+In your HTML, add a reference to the angular-metrics-graphics library and
+associated JavaScript and CSS dependencies:
 
-    <chart></chart>
+    <link type="text/css" rel="stylesheet" href="path/to/metrics-graphics/dist/metricsgraphics.css" media="all">
+    <script type="text/javascript" src="path/to/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="path/to/d3/d3.min.js"></script>
+    <script type="text/javascript" src="path/to/angular/angular.min.js"></script>
+    <script type="text/javascript" src="path/to/metricsgraphics/dist/metricsgraphics.js"></script>
+    <script type="text/javascript" src="path/to/angular-metrics-graphics/dist/angular-metrics-graphics.js"></script>
 
-Bind the chart to the variable `data` in the controller scope. Provide
-configuration options from the variable `options` in the controller scope:
+Create a chart and set the data source as the `data` variable from the
+controller scope. Set the configuration options from the variable `options`
+in the controller scope:
 
     <chart data="{{ data }}" options="{{ options }}"></chart>
 
