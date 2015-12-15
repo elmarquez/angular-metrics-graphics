@@ -1,15 +1,15 @@
 {
   "css": [
     "css/example.css",
-    "vendor/bootstrap/dist/css/bootstrap.min.css",
-    "vendor/metrics-graphics/dist/metricsgraphics.css"
+    "../../vendor/bootstrap/dist/css/bootstrap.min.css",
+    "../../vendor/metrics-graphics/dist/metricsgraphics.css"
   ],
   "js": [
-    "vendor/jquery/dist/jquery.min.js",
-    "vendor/bootstrap/dist/js/bootstrap.min.js",
-    "vendor/d3/d3.min.js",
-    "vendor/metrics-graphics/dist/metricsgraphics.js",
-    "vendor/angular/angular.min.js",
+    "../../vendor/jquery/dist/jquery.min.js",
+    "../../vendor/bootstrap/dist/js/bootstrap.min.js",
+    "../../vendor/d3/d3.min.js",
+    "../../vendor/metrics-graphics/dist/metricsgraphics.js",
+    "../../vendor/angular/angular.min.js",
     "scripts/directives/chart.js"
   ],
   "app": [

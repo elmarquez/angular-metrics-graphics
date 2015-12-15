@@ -10,7 +10,7 @@
  * @param {Array} data Chart data
  * @param {Object} options Chart configuration
  */
-angular.module('metricsgraphics',[]).directive('chart', function() {
+angular.module('metricsgraphics', []).directive('chart', function() {
   return {
     link: function(scope, element) {
       // default options
@@ -43,12 +43,10 @@ angular.module('metricsgraphics',[]).directive('chart', function() {
       }
       element[0].id = element[0].id ? element[0].id : randomString(5);
       // set the data and target configuration options
+      options.data = scope.data || [];
       options.target = '#' + element[0].id;
       // create the chart
-      scope.$watch('data', function(){
-        options.data = scope.data || [];
-        MG.data_graphic(options);
-      });      
+      MG.data_graphic(options);
     },
     restrict: 'E',
     scope: {

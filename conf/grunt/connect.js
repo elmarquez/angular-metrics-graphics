@@ -5,8 +5,9 @@ module.exports = {
   },
   dist: {
     options: {
-      open: true,
-      base: '<%= yeoman.dist %>/examples'
+      open: {
+        target: 'http://localhost:9000/dist/examples'
+      }
     }
   }
 };

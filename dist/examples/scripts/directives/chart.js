@@ -10,7 +10,7 @@
  * @param {Array} data Chart data
  * @param {Object} options Chart configuration
  */
-angular.module('metricsgraphics',[]).directive('chart', function() {
+angular.module('metricsgraphics', []).directive('chart', function() {
   return {
     link: function(scope, element) {
       // default options

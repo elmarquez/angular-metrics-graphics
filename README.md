@@ -21,24 +21,22 @@ dist/angular-metrics-graphics.js library file.
 Dependencies
 ------------
 
-The library has the following runtime dependencies:
+See the dependencies section of the bower.json file for the list of runtime
+dependencies.
 
- * Angular.js
- * JQuery
- * MetricsGraphics
- * d3.js
-
-To compile the library from sources, you will require the following dependencies:
+To compile the library from sources, you will require the following to be
+available on your system:
 
  * Nodejs
  * Bower
  * Grunt
 
-Install all build and run time dependencies as follows:
+Install all dependencies as follows:
 
     npm install; bower install
 
-Run `grunt` at the console to see the list of build commands.
+Run `grunt` at the console to see the list of build commands. Run `grunt serve`
+to start a local web server and run the tests.
 
 
 Usage
