@@ -45,11 +45,16 @@ angular.module('metricsgraphics', []).directive('chart', function() {
       // set the data and target configuration options
       options.data = scope.data || [];
       options.target = '#' + element[0].id;
+      // preprocess data
+      if (scope.convertDateField) {
+        options.data = MG.convert.date(options.data, scope.convertDateField);
+      }
       // create the chart
       MG.data_graphic(options);
     },
     restrict: 'E',
     scope: {
+      convertDateField: '@',
       data: '=',
       options: '='
     }
