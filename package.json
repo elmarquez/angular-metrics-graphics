@@ -12,8 +12,14 @@
     "metrics",
     "metricsgraphics"
   ],
-  "authors": [
+  "author": [
     "Davis Marques <dmarq.ezz@gmail.com>"
+  ],
+  "contributors": [
+    {
+      "name": "riosc",
+      "url": "https://github.com/riosc"
+    }
   ],
   "repository": {
     "type":"git",
