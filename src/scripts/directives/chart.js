@@ -43,15 +43,26 @@ angular.module('metricsgraphics', []).directive('chart', function() {
       }
       element[0].id = element[0].id ? element[0].id : randomString(5);
       options.target = '#' + element[0].id;
-      // preprocess data
-      if (scope.convertDateField) {
-        options.data = MG.convert.date(options.data, scope.convertDateField);
-      }
       // create the chart
-      scope.$watch('data', function(){
+      scope.$watch('data', function() {
         options.data = scope.data || [];
+        // preprocess data
+        if (scope.convertDateField)  {
+          // if the first record's date field is a string then we assume that
+          // all dates require conversion
+          if (options.data &&
+              options.data[0] &&
+              options.data[0][scope.convertDateField] &&
+              typeof(options.data[0][scope.convertDateField]) === 'string') {
+            options.data = MG.convert.date(options.data, scope.convertDateField);
+          }
+        }
+        // create a new params object
+        // @see https://github.com/mozilla/metrics-graphics/issues/393
+
+        // build chart
         MG.data_graphic(options);
-      });
+      },true);
     },
     restrict: 'E',
     scope: {

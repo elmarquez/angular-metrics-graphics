@@ -1,5 +1,5 @@
 /* globals MG */
-/* jshint camelcase:false */
+/* jshint camelcase:false, -W109 */
 'use strict';
 
 /**
@@ -7,7 +7,7 @@
  */
 angular
   .module('example')
-  .controller('ExampleCtrl', ['$scope', '$http', '$log', function($scope, $http, $log) {
+  .controller('ExampleCtrl', ['$scope', '$http', '$log', '$timeout', function($scope, $http, $log, $timeout) {
 
     $scope.STATES = {
       READY: 0,
@@ -17,6 +17,13 @@ angular
 
     $scope.alert = null;
     $scope.charts = {
+      beauraines: {
+        data: [{"date":"2015-01-01","value":1},{"date":"2015-01-02","value":1}],
+        title: 'Beau\'s Downloads',
+        description: 'This is an example of how to preprocess data.',
+        x_accessor:'date',
+        y_accessor:'value'
+      },
       fakeUsers: {
         data: null,
         description: 'New user accounts by date',
@@ -50,6 +57,8 @@ angular
         y_accessor: 'value'
       }
     };
+    $scope.date = new Date('2015-01-02');
+    $scope.dates = [];
     $scope.state = $scope.STATES.READY;
 
     //-------------------------------------------------------------------------
@@ -72,12 +81,14 @@ angular
       Object.keys($scope.charts).forEach(function(chart) {
         $scope.read(chart);
       });
+      // simulate live data
+      $timeout($scope.update, 2000);
     };
 
     $scope.read = function (chart) {
       $scope.alert = null;
       $scope.state = $scope.STATES.LOADING;
-      if ($scope.charts[chart]) {
+      if ($scope.charts[chart] && $scope.charts[chart].src) {
         $http
           .get($scope.charts[chart].src)
           .success(function(data) {
@@ -96,6 +107,21 @@ angular
           });
       }
     };
+
+      /**
+       * Update the beauraines chart to simulate live data.
+       */
+      $scope.update = function () {
+        // get the next date
+        $scope.date.setDate($scope.date.getDate() + 1);
+        $scope.dates.push({
+          date: new Date($scope.date.getTime()),
+          value: Math.floor(Math.random() * 10)
+        });
+        $scope.charts.beauraines.data = $scope.dates;
+        // enqueue the next update
+        $timeout($scope.update, 2000);
+      };
 
     // initialize the controller
     $scope.init();

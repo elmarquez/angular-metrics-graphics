@@ -36,7 +36,7 @@ Install all dependencies as follows:
     npm install; bower install
 
 Run `grunt` at the console to see the list of build commands. Run `grunt serve`
-to start a local web server and run the tests.
+to start a local web server and view the examples.
 
 
 Usage
@@ -57,6 +57,13 @@ controller scope. Set the configuration options from the variable `options`
 in the controller scope:
 
     <chart data="{{ data }}" options="{{ options }}"></chart>
+
+If you have a date field that requires conversion into a Date object, use the
+convert-date-field attribute as follows:
+
+    <chart data="{{ data }}" options="{{ options }}" convert-date-field="{{ field name }}"></chart>
+
+See the index.html page for examples.
 
 
 License
