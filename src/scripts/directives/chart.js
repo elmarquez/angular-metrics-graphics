@@ -42,15 +42,16 @@ angular.module('metricsgraphics', []).directive('chart', function() {
         return 'mg-chart-' + s;
       }
       element[0].id = element[0].id ? element[0].id : randomString(5);
-      // set the data and target configuration options
-      options.data = scope.data || [];
       options.target = '#' + element[0].id;
       // preprocess data
       if (scope.convertDateField) {
         options.data = MG.convert.date(options.data, scope.convertDateField);
       }
       // create the chart
-      MG.data_graphic(options);
+      scope.$watch('data', function(){
+        options.data = scope.data || [];
+        MG.data_graphic(options);
+      });
     },
     restrict: 'E',
     scope: {
